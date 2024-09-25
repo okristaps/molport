@@ -41,7 +41,7 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ['"Euclid Circular A"', "Arial", "Helvetica", "sans-serif"],
+        sans: ["Euclid Circular A", "Arial", "sans-serif"],
       },
       spacing: {
         "1": "1px",
@@ -71,6 +71,9 @@ const config: Config = {
         "elevation-3": "3px 10px 13px 2px rgba(15, 22, 30, 0.17)",
       },
     },
+  },
+  corePlugins: {
+    fontWeight: true,
   },
   plugins: [],
 };

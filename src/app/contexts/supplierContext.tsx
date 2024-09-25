@@ -48,7 +48,9 @@ export const SupplierProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const addSupplier = (supplier: Supplier) => {
-    setSuppliers([...suppliers, { ...supplier, catalog: [] }]);
+    const updatedSuppliers = [...suppliers, { ...supplier, catalog: [] }];
+    setSuppliers(updatedSuppliers);
+    setSelectedSupplier(supplier);
   };
 
   const uploadCatalog = (uploadedCatalog: any[]) => {

@@ -45,9 +45,13 @@ export default function CatalogUpload({
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold mb-4">Upload Catalog for Supplier</h2>
-      <select onChange={handleSupplierChange} className="border border-gray-300 rounded p-2 mb-4">
+    <div className="flex flex-1 flex-col items-center">
+      <h2 className="text-2xl font-semibold mb-8">Suppliers</h2>
+      <select
+        value={selectedSupplier ? selectedSupplier.name : ""}
+        onChange={handleSupplierChange}
+        className="border border-gray-300 rounded p-4 mb-8"
+      >
         <option value="">Select a Supplier</option>
         {suppliers.map((supplier) => (
           <option key={supplier.name} value={supplier.name}>
@@ -55,10 +59,10 @@ export default function CatalogUpload({
           </option>
         ))}
       </select>
+      {selectedSupplier && <h3 className="text-xl my-8">Selected Supplier: {selectedSupplier.name}</h3>}
 
-      {selectedSupplier && !selectedSupplier.catalog?.length && (
-        <div>
-          <h3 className="text-xl mb-2">Selected Supplier: {selectedSupplier.name}</h3>
+      {selectedSupplier && !catalogData.length && (
+        <div className="flex flex-1 self-center">
           <input type="file" accept=".xlsx, .xls" onChange={handleFileUpload} className="mb-4" />
         </div>
       )}
