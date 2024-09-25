@@ -2,15 +2,20 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const euclidCircularA = localFont({
+  src: [
+    { path: "./fonts/Euclid Circular A Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/Euclid Circular A Bold.ttf", weight: "700", style: "normal" },
+    { path: "./fonts/Euclid Circular A Bold Italic.ttf", weight: "700", style: "italic" },
+    { path: "./fonts/Euclid Circular A Italic.ttf", weight: "400", style: "italic" },
+    { path: "./fonts/Euclid Circular A Light.ttf", weight: "300", style: "normal" },
+    { path: "./fonts/Euclid Circular A Light Italic.ttf", weight: "300", style: "italic" },
+    { path: "./fonts/Euclid Circular A Medium.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/Euclid Circular A Medium Italic.ttf", weight: "500", style: "italic" },
+    { path: "./fonts/Euclid Circular A SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/Euclid Circular A SemiBold Italic.ttf", weight: "600", style: "italic" },
+  ],
+  variable: "--font-euclid-circular-a",
 });
 
 export const metadata: Metadata = {
@@ -25,11 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${euclidCircularA.variable} antialiased`}>{children}</body>
     </html>
   );
 }
